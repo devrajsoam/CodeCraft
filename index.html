@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Code Editor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1 class="header__title">Futuristic Code Editor</h1>
+        <button class="btn btn--info" id="infoBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            Info
+        </button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Code Editor Section -->
+        <section class="editor">
+            <div class="editor__controls">
+                <button class="btn btn--run" id="runBtn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5,3 19,12 5,21"></polygon>
+                    </svg>
+                    <span class="btn__text">Run</span>
+                    <div class="btn__loader hidden"></div>
+                </button>
+                <button class="btn btn--clear" id="clearBtn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="3,6 5,6 21,6"></polyline>
+                        <path d="m19,6v14a2,2 0 0,1 -2,2H7a2,2 0 0,1 -2,-2V6m3,0V4a2,2 0 0,1 2,-2h4a2,2 0 0,1 2,2v2"></path>
+                    </svg>
+                    Clear All
+                </button>
+            </div>
+
+            <div class="editor__panels">
+                <!-- HTML Panel -->
+                <div class="panel">
+                    <div class="panel__header">
+                        <div class="panel__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="13,2 3,14 12,14 11,22 21,10 12,10"></polygon>
+                            </svg>
+                        </div>
+                        <h3 class="panel__title">HTML</h3>
+                    </div>
+                    <div class="panel__content">
+                        <textarea 
+                            class="code-area" 
+                            id="htmlCode" 
+                            placeholder="Enter your HTML code here..."
+                            spellcheck="false"
+                        ></textarea>
+                    </div>
+                </div>
+
+                <!-- CSS Panel -->
+                <div class="panel">
+                    <div class="panel__header">
+                        <div class="panel__icon panel__icon--css">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="panel__title">CSS</h3>
+                    </div>
+                    <div class="panel__content">
+                        <textarea 
+                            class="code-area" 
+                            id="cssCode" 
+                            placeholder="Enter your CSS code here..."
+                            spellcheck="false"
+                        ></textarea>
+                    </div>
+                </div>
+
+                <!-- JavaScript Panel -->
+                <div class="panel">
+                    <div class="panel__header">
+                        <div class="panel__icon panel__icon--js">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <h3 class="panel__title">JavaScript</h3>
+                    </div>
+                    <div class="panel__content">
+                        <textarea 
+                            class="code-area" 
+                            id="jsCode" 
+                            placeholder="Enter your JavaScript code here..."
+                            spellcheck="false"
+                        ></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Output Section -->
+        <section class="output">
+            <div class="output__header">
+                <h3 class="output__title">Live Preview</h3>
+                <div class="output__status" id="outputStatus">Ready</div>
+            </div>
+            <div class="output__content">
+                <iframe id="outputFrame" title="Code Output Preview"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <!-- Info Modal -->
+    <div class="modal hidden" id="infoModal">
+        <div class="modal__backdrop"></div>
+        <div class="modal__content">
+            <div class="modal__header">
+                <h2 class="modal__title">Project Information</h2>
+                <button class="modal__close" id="closeModal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal__body">
+                <div class="project-info">
+                    <div class="project-info__item">
+                        <strong>Maker:</strong> Devraj
+                    </div>
+                    <div class="project-info__item">
+                        <strong>Course:</strong> BCA 3rd Year
+                    </div>
+                    <div class="project-info__item">
+                        <strong>College:</strong> Vinayak Vidyapeeth College
+                    </div>
+                    <div class="project-info__item">
+                        <strong>Project Type:</strong> Minor Project
+                    </div>
+                    <div class="project-info__item">
+                        <strong>Description:</strong> A futuristic web-based code editor that allows real-time HTML, CSS, and JavaScript development with instant preview.
+                    </div>
+                    <div class="project-info__features">
+                        <strong>Features:</strong>
+                        <ul>
+                            <li>Real-time code preview</li>
+                            <li>Auto-completion for brackets and quotes</li>
+                            <li>Responsive design</li>
+                            <li>Futuristic UI with smooth animations</li>
+                            <li>Keyboard shortcuts</li>
+                            <li>Auto-run functionality</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal hidden" id="confirmModal">
+        <div class="modal__backdrop"></div>
+        <div class="modal__content modal__content--small">
+            <div class="modal__header">
+                <h2 class="modal__title">Clear All Code</h2>
+            </div>
+            <div class="modal__body">
+                <p>Are you sure you want to clear all code? This action cannot be undone.</p>
+                <div class="modal__actions">
+                    <button class="btn btn--clear" id="confirmClear">Yes, Clear All</button>
+                    <button class="btn btn--secondary" id="cancelClear">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

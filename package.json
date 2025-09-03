@@ -1,0 +1,35 @@
+{
+  "name": "futuristic-code-editor",
+  "version": "1.0.0",
+  "description": "A modern web-based code editor with real-time preview - BCA Minor Project",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 3000"
+  },
+  "keywords": [
+    "code-editor",
+    "web-development",
+    "html",
+    "css",
+    "javascript",
+    "real-time-preview",
+    "bca-project",
+    "minor-project"
+  ],
+  "author": {
+    "name": "Devraj",
+    "education": "BCA 3rd Year",
+    "institution": "Vinayak Vidyapeeth College"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devraj/futuristic-code-editor"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}
